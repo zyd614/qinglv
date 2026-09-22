@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1eb" />
+    <title>相遇 · 私人情侣空间</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-rail" aria-label="空间导航">
+        <a class="brand" href="#" aria-label="相遇首页">
+          <span class="brand-mark"><i></i><i></i></span>
+          <span>相遇</span>
+        </a>
+
+        <div class="rail-caption">PRIVATE SPACE</div>
+        <div class="rail-lock" aria-hidden="true">
+          <i data-lucide="lock-keyhole"></i>
+        </div>
+        <p class="rail-note">只把日常<br />留给彼此</p>
+
+        <div class="rail-footer">
+          <span class="online-dot"></span>
+          <span>安全连接</span>
+        </div>
+      </aside>
+
+      <main class="main-shell">
+        <section class="login-view" id="loginView" aria-labelledby="loginTitle">
+          <div class="login-topline">
+            <span class="eyebrow">TWO HEARTS · ONE PLACE</span>
+            <span class="topline-date">2026 / 09 / 23</span>
+          </div>
+
+          <div class="login-layout">
+            <div class="login-intro">
+              <div class="intro-index">01 <span></span> 02</div>
+              <h1 id="loginTitle">只给<br /><em>我们</em>的空间</h1>
+              <p>输入属于你的专属密码，<br />去看看今天的我们。</p>
+              <div class="intro-stamp">
+                <span class="stamp-star">✦</span>
+                <span>EST.<br />TOGETHER</span>
+              </div>
+            </div>
+
+            <div class="login-panel">
+              <div class="panel-top">
+                <div class="panel-icon"><i data-lucide="key-round"></i></div>
+                <span class="panel-status"><span></span> 已加密</span>
+              </div>
+              <div class="panel-copy">
+                <p class="micro-label">WELCOME BACK</p>
+                <h2>进入我们的<br />小小宇宙</h2>
+                <p class="panel-description">密码会认出你是谁。</p>
+              </div>
+
+              <form class="login-form" id="loginForm">
+                <label class="field-label" for="passwordInput">专属密码</label>
+                <div class="password-field">
+                  <i data-lucide="fingerprint"></i>
+                  <input
+                    id="passwordInput"
+                    name="password"
+                    type="password"
+                    placeholder="请输入密码"
+                    autocomplete="current-password"
+                    spellcheck="false"
+                    required
+                  />
+                  <button class="icon-button input-action" id="togglePassword" type="button" aria-label="显示密码" title="显示密码">
+                    <i data-lucide="eye"></i>
+                  </button>
+                </div>
+                <p class="form-error" id="formError" role="alert" aria-live="polite"></p>
+                <button class="primary-button" type="submit">
+                  <span>进入空间</span>
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </form>
+
+              <div class="panel-bottom">
+                <span>仅限受邀的人访问</span>
+                <i data-lucide="shield-check"></i>
+              </div>
+            </div>
+          </div>
+
+          <footer class="login-footer">
+            <span>相遇 / PRIVATE COUPLE SPACE</span>
+            <span>KEEP THIS BETWEEN US</span>
+          </footer>
+        </section>
+
+        <section class="space-view" id="spaceView" hidden aria-labelledby="spaceTitle">
+          <header class="space-header">
+            <div>
+              <span class="eyebrow">OUR PRIVATE SPACE</span>
+              <h1 id="spaceTitle">早安，<span id="identityName">小鹿</span></h1>
+            </div>
+            <div class="header-actions">
+              <div class="last-seen"><span class="online-dot"></span><span>刚刚在线</span></div>
+              <button class="icon-button logout-button" id="logoutButton" type="button" aria-label="退出空间" title="退出空间">
+                <i data-lucide="log-out"></i>
+              </button>
+            </div>
+          </header>
+
+          <div class="welcome-strip">
+            <div class="welcome-avatar" id="identityAvatar">鹿</div>
+            <div class="welcome-copy">
+              <span class="micro-label">TODAY'S NOTE</span>
+              <p id="identityGreeting">今天也要好好生活，然后见面。</p>
+            </div>
+            <div class="welcome-date"><strong>23</strong><span>SEP<br />WED</span></div>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="content-section timeline-section" aria-labelledby="timelineTitle">
+              <div class="section-heading">
+                <div>
+                  <span class="micro-label">A LITTLE ARCHIVE</span>
+                  <h2 id="timelineTitle">我们的日常</h2>
+                </div>
+                <button class="text-button" type="button" id="archiveButton">查看全部 <i data-lucide="arrow-up-right"></i></button>
+              </div>
+
+              <div class="timeline-list" id="timelineList">
+                <article class="timeline-item">
+                  <div class="timeline-marker"><i data-lucide="coffee"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-meta"><span>今天 · 08:16</span><span class="tag">早安</span></div>
+                    <h3>把第一杯咖啡留给你</h3>
+                    <p>窗外下了一点雨，想起你说过，雨天适合慢慢醒来。</p>
+                  </div>
+                </article>
+                <article class="timeline-item">
+                  <div class="timeline-marker marker-lilac"><i data-lucide="map-pin"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-meta"><span>昨天 · 19:42</span><span class="tag tag-lilac">约定</span></div>
+                    <h3>周末去看那片海</h3>
+                    <p>路线已经收藏好了，等你选一个喜欢的傍晚。</p>
+                  </div>
+                </article>
+                <article class="timeline-item">
+                  <div class="timeline-marker marker-green"><i data-lucide="sparkles"></i></div>
+                  <div class="timeline-content">
+                    <div class="timeline-meta"><span>09 月 18 日 · 22:08</span><span class="tag tag-green">纪念</span></div>
+                    <h3>我们一起走过的第 128 天</h3>
+                    <p>日子没有很喧闹，但每一天都在慢慢变得具体。</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <aside class="content-section side-section" aria-label="空间信息">
+              <div class="mini-card anniversary-card">
+                <div class="mini-card-head"><span class="micro-label">SINCE WE MET</span><i data-lucide="heart"></i></div>
+                <div class="anniversary-number">128<span> DAYS</span></div>
+                <p>距离下一次见面，还有 <strong>04</strong> 天</p>
+                <div class="progress-track"><span style="width: 76%"></span></div>
+                <div class="progress-label"><span>上一次见面</span><span>下一次见面</span></div>
+              </div>
+
+              <div class="mini-card mood-card">
+                <div class="mini-card-head"><span class="micro-label">HOW ARE YOU</span><i data-lucide="sun-medium"></i></div>
+                <p class="mood-question">此刻的心情，想让对方知道吗？</p>
+                <div class="mood-options" id="moodOptions">
+                  <button class="mood-option" type="button" data-mood="想你"><i data-lucide="heart"></i><span>想你</span></button>
+                  <button class="mood-option" type="button" data-mood="平静"><i data-lucide="cloud-sun"></i><span>平静</span></button>
+                  <button class="mood-option" type="button" data-mood="开心"><i data-lucide="sun"></i><span>开心</span></button>
+                </div>
+                <p class="mood-result" id="moodResult" aria-live="polite"></p>
+              </div>
+
+              <div class="mini-card people-card">
+                <div class="mini-card-head"><span class="micro-label">TWO OF US</span><i data-lucide="users"></i></div>
+                <div class="people-row">
+                  <div class="person"><span class="person-avatar avatar-coral">鹿</span><span>小鹿</span></div>
+                  <span class="connection-line"><i data-lucide="heart"></i></span>
+                  <div class="person"><span class="person-avatar avatar-sage">树</span><span>大树</span></div>
+                </div>
+                <p class="identity-note" id="identityNote">你以小鹿的身份进入了空间</p>
+              </div>
+            </aside>
+          </div>
+
+          <section class="note-composer" aria-labelledby="noteTitle">
+            <div class="composer-icon"><i data-lucide="pen-line"></i></div>
+            <div class="composer-copy">
+              <span class="micro-label">LEAVE A NOTE</span>
+              <h2 id="noteTitle">今天想对对方说什么？</h2>
+            </div>
+            <form id="noteForm" class="note-form">
+              <input id="noteInput" type="text" maxlength="80" placeholder="写一句话，留在这里……" aria-label="留言内容" />
+              <button class="send-button" type="submit" aria-label="发送留言" title="发送留言"><i data-lucide="send"></i></button>
+            </form>
+          </section>
+
+          <footer class="space-footer">
+            <span>相遇 / EST. 2026</span>
+            <span>MADE FOR TWO</span>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
