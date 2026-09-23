@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5f1eb" />
+    <meta name="theme-color" content="#fff1f4" />
     <title>相遇 · 私人情侣空间</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -107,6 +107,9 @@
             </div>
             <div class="header-actions">
               <div class="last-seen"><span class="online-dot"></span><span>刚刚在线</span></div>
+              <button class="icon-button settings-button" id="themeSettingsButton" type="button" aria-label="主题与背景设置" title="主题与背景设置">
+                <i data-lucide="palette"></i>
+              </button>
               <button class="icon-button logout-button" id="logoutButton" type="button" aria-label="退出空间" title="退出空间">
                 <i data-lucide="log-out"></i>
               </button>
@@ -131,6 +134,16 @@
                 </div>
                 <button class="text-button" type="button" id="archiveButton">查看全部 <i data-lucide="arrow-up-right"></i></button>
               </div>
+
+              <form class="daily-form" id="dailyForm">
+                <div class="daily-form-top"><i data-lucide="camera"></i><span>记录今天，也让对方看见</span></div>
+                <textarea id="dailyInput" maxlength="300" rows="2" placeholder="今天发生了什么？" aria-label="日常内容"></textarea>
+                <div class="daily-form-actions">
+                  <label class="upload-button" for="dailyImage"><i data-lucide="image-plus"></i><span id="dailyImageLabel">添加图片</span></label>
+                  <input id="dailyImage" type="file" accept="image/png,image/jpeg,image/webp" />
+                  <button class="send-button daily-submit" type="submit"><i data-lucide="send"></i><span>发布日常</span></button>
+                </div>
+              </form>
 
               <div class="timeline-list" id="timelineList">
                 <article class="timeline-item">
@@ -182,26 +195,56 @@
 
               <div class="mini-card people-card">
                 <div class="mini-card-head"><span class="micro-label">TWO OF US</span><i data-lucide="users"></i></div>
-                <div class="people-row">
-                  <div class="person"><span class="person-avatar avatar-coral">鹿</span><span>小鹿</span></div>
+                <div class="profile-pair" id="profilePair">
+                  <div class="profile-person" data-profile-id="female">
+                    <div class="profile-main"><span class="person-avatar avatar-coral" data-profile-avatar="female">鹿</span><span class="profile-name" data-profile-name="female">小鹿</span><span class="gender-label">女</span></div>
+                    <button class="edit-icon" type="button" data-edit-profile="female" aria-label="编辑小鹿资料" title="编辑资料"><i data-lucide="pencil"></i></button>
+                  </div>
                   <span class="connection-line"><i data-lucide="heart"></i></span>
-                  <div class="person"><span class="person-avatar avatar-sage">树</span><span>大树</span></div>
+                  <div class="profile-person" data-profile-id="male">
+                    <div class="profile-main"><span class="person-avatar avatar-sage" data-profile-avatar="male">树</span><span class="profile-name" data-profile-name="male">大树</span><span class="gender-label">男</span></div>
+                    <button class="edit-icon" type="button" data-edit-profile="male" aria-label="编辑大树资料" title="编辑资料"><i data-lucide="pencil"></i></button>
+                  </div>
                 </div>
                 <p class="identity-note" id="identityNote">你以小鹿的身份进入了空间</p>
+              </div>
+
+              <div class="mini-card birthday-card">
+                <div class="mini-card-head"><span class="micro-label">BIRTHDAY REMINDER</span><i data-lucide="cake"></i></div>
+                <div class="birthday-list" id="birthdayList"></div>
+                <p class="birthday-result" id="birthdayResult" aria-live="polite"></p>
               </div>
             </aside>
           </div>
 
-          <section class="note-composer" aria-labelledby="noteTitle">
-            <div class="composer-icon"><i data-lucide="pen-line"></i></div>
-            <div class="composer-copy">
-              <span class="micro-label">LEAVE A NOTE</span>
-              <h2 id="noteTitle">今天想对对方说什么？</h2>
+          <section class="message-section" aria-labelledby="messageTitle">
+            <div class="section-heading">
+              <div>
+                <span class="micro-label">A MESSAGE BETWEEN US</span>
+                <h2 id="messageTitle">互相留言</h2>
+              </div>
+              <span class="message-status" id="messageStatus"><i data-lucide="mail"></i> 留言会提醒对方</span>
             </div>
-            <form id="noteForm" class="note-form">
-              <input id="noteInput" type="text" maxlength="80" placeholder="写一句话，留在这里……" aria-label="留言内容" />
+            <div class="message-list" id="messageList"></div>
+            <form id="noteForm" class="note-form message-form">
+              <input id="noteInput" type="text" maxlength="160" placeholder="写一句话，留在这里……" aria-label="留言内容" />
               <button class="send-button" type="submit" aria-label="发送留言" title="发送留言"><i data-lucide="send"></i></button>
             </form>
+          </section>
+
+          <section class="wishlist-section" aria-labelledby="wishlistTitle">
+            <div class="section-heading">
+              <div>
+                <span class="micro-label">OUR WISH LIST</span>
+                <h2 id="wishlistTitle">一起完成的小心愿</h2>
+              </div>
+              <span class="wish-count" id="wishCount">0 / 0</span>
+            </div>
+            <form class="wish-form" id="wishForm">
+              <input id="wishInput" type="text" maxlength="100" placeholder="添加一个想和对方完成的心愿……" aria-label="心愿内容" />
+              <button class="add-wish-button" type="submit"><i data-lucide="plus"></i><span>添加心愿</span></button>
+            </form>
+            <div class="wish-list" id="wishList"></div>
           </section>
 
           <footer class="space-footer">
@@ -209,6 +252,62 @@
             <span>MADE FOR TWO</span>
           </footer>
         </section>
+
+        <dialog class="edit-dialog" id="profileDialog">
+          <form method="dialog" class="dialog-card" id="profileForm">
+            <div class="dialog-header"><div><span class="micro-label">EDIT PROFILE</span><h2>修改资料</h2></div><button class="icon-button" value="cancel" aria-label="关闭"><i data-lucide="x"></i></button></div>
+            <input id="profileId" type="hidden" />
+            <label class="dialog-label" for="profileName">名字</label>
+            <input class="dialog-input" id="profileName" type="text" maxlength="20" required />
+            <label class="dialog-label" for="profileAvatar">头像文字</label>
+            <input class="dialog-input" id="profileAvatar" type="text" maxlength="2" placeholder="例如：鹿" />
+            <label class="dialog-label" for="profileImage">上传头像图片</label>
+            <input class="dialog-file" id="profileImage" type="file" accept="image/png,image/jpeg,image/webp" />
+            <p class="dialog-hint" id="profilePermission"></p>
+            <div class="dialog-actions"><button class="secondary-button" type="button" id="cancelProfile">取消</button><button class="primary-button dialog-submit" type="submit"><span>保存资料</span><i data-lucide="check"></i></button></div>
+          </form>
+        </dialog>
+
+        <dialog class="edit-dialog" id="themeDialog">
+          <form method="dialog" class="dialog-card theme-dialog-card" id="themeForm">
+            <div class="dialog-header"><div><span class="micro-label">PERSONAL SPACE STYLE</span><h2>主题与背景</h2></div><button class="icon-button" value="cancel" aria-label="关闭"><i data-lucide="x"></i></button></div>
+            <label class="dialog-label" for="themeIdentity">设置哪一个身份</label>
+            <select class="dialog-input" id="themeIdentity">
+              <option value="female">小鹿 · 女</option>
+              <option value="male">大树 · 男</option>
+              <option value="admin">我们 · 管理员</option>
+            </select>
+            <p class="dialog-hint" id="themePermission"></p>
+            <fieldset class="theme-choice-group">
+              <legend>主题色</legend>
+              <div class="theme-swatches">
+                <label class="theme-swatch theme-rose"><input type="radio" name="theme" value="rose" /><span></span><strong>樱粉</strong></label>
+                <label class="theme-swatch theme-lilac"><input type="radio" name="theme" value="lilac" /><span></span><strong>紫藤</strong></label>
+                <label class="theme-swatch theme-sage"><input type="radio" name="theme" value="sage" /><span></span><strong>薄荷</strong></label>
+                <label class="theme-swatch theme-sunset"><input type="radio" name="theme" value="sunset" /><span></span><strong>晚霞</strong></label>
+              </div>
+            </fieldset>
+            <fieldset class="theme-choice-group">
+              <legend>背景风格</legend>
+              <div class="background-choices">
+                <label class="background-choice"><input type="radio" name="background" value="paper" /><span class="background-preview preview-paper"></span><strong>柔雾</strong></label>
+                <label class="background-choice"><input type="radio" name="background" value="lines" /><span class="background-preview preview-lines"></span><strong>细线</strong></label>
+                <label class="background-choice"><input type="radio" name="background" value="blush" /><span class="background-preview preview-blush"></span><strong> blush</strong></label>
+              </div>
+            </fieldset>
+            <div class="dialog-actions"><button class="secondary-button" type="button" id="cancelTheme">取消</button><button class="primary-button dialog-submit" type="submit"><span>保存设置</span><i data-lucide="check"></i></button></div>
+          </form>
+        </dialog>
+        <dialog class="edit-dialog" id="birthdayDialog">
+          <form method="dialog" class="dialog-card" id="birthdayForm">
+            <div class="dialog-header"><div><span class="micro-label">BIRTHDAY REMINDER</span><h2>设置生日</h2></div><button class="icon-button" value="cancel" aria-label="关闭"><i data-lucide="x"></i></button></div>
+            <input id="birthdayId" type="hidden" />
+            <label class="dialog-label" for="birthdayInput">生日日期</label>
+            <input class="dialog-input" id="birthdayInput" type="date" required />
+            <p class="dialog-hint">生日只显示月、日，并在临近时提醒彼此。</p>
+            <div class="dialog-actions"><button class="secondary-button" type="button" id="cancelBirthday">取消</button><button class="primary-button dialog-submit" type="submit"><span>保存生日</span><i data-lucide="check"></i></button></div>
+          </form>
+        </dialog>
       </main>
     </div>
 

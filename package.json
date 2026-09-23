@@ -1,0 +1,9 @@
+{
+  "name": "encounter-couple-space",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private shared couple space with identity login, daily posts, wishes, birthdays and email notifications.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "dotenv": "^16.6.1", "nodemailer": "^7.0.6" }
+}

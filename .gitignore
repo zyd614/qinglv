@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/space.json
+data/space.json.tmp
