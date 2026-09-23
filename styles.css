@@ -1,16 +1,16 @@
 :root {
   --ink: #292725;
   --muted: #8b8580;
-  --line: #e4ded6;
-  --paper: #f5f1eb;
-  --white: #fffdfa;
+  --line: #ecd4da;
+  --paper: #fff1f4;
+  --white: #fffafd;
   --coral: #e98573;
   --coral-dark: #c96155;
   --sage: #a8b6a2;
   --lilac: #b4a7c7;
   --yellow: #e9c66b;
   --deep: #353735;
-  --shadow: 0 20px 60px rgba(60, 48, 39, 0.08);
+  --shadow: 0 20px 60px rgba(169, 87, 105, 0.12);
 }
 
 * {
@@ -58,7 +58,7 @@ button {
   align-items: center;
   border-right: 1px solid var(--line);
   padding: 35px 18px 25px;
-  background: #f0ebe4;
+  background: #f9e2e8;
 }
 
 .brand {
@@ -123,7 +123,7 @@ button {
   border: 1px solid #d2c8bd;
   border-radius: 50%;
   color: var(--coral-dark);
-  background: #f9f5ef;
+  background: #fff5f7;
 }
 
 .rail-lock svg {
@@ -175,7 +175,7 @@ button {
   display: flex;
   flex-direction: column;
   background:
-    linear-gradient(90deg, rgba(228, 222, 214, 0.55) 1px, transparent 1px) 0 0 / 25% 100%,
+    linear-gradient(90deg, rgba(237, 199, 209, 0.45) 1px, transparent 1px) 0 0 / 25% 100%,
     var(--paper);
 }
 
@@ -560,7 +560,7 @@ button {
   margin-top: 28px;
   padding: 20px 30px;
   border-left: 3px solid var(--coral);
-  background: #eee7df;
+  background: #f8dfe6;
 }
 
 .welcome-avatar {
@@ -924,7 +924,7 @@ button {
   gap: 19px;
   margin-top: 16px;
   padding: 22px 24px;
-  background: #e9e2da;
+  background: #f8e2e8;
 }
 
 .composer-icon {
